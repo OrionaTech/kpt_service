@@ -16,8 +16,8 @@ import { cn } from "@/lib/utils"
 const productCategories = [
   { name: "EOT Cranes", href: "/products?category=EOT Cranes" },
   { name: "Gantry Cranes", href: "/products?category=Gantry Cranes" },
-  { name: "Jib Cranes", href: "/products?category=Jib Cranes" },
-  { name: "Hoists", href: "/products?category=Hoists" },
+  { name: "Electrical Panels", href: "/products?category=Electrical Panels" },
+  // { name: "Hoists", href: "/products?category=Hoists" },
 ]
 
 export function Navbar() {

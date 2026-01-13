@@ -2,9 +2,12 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
 
-export async function PATCH(req: Request, { params }: { params: { id: string } }) {
+export async function PATCH(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
-    const { id } = await params
+    const { id } = await params;
     const body = await req.json();
     
     const supabase = process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -19,8 +22,8 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
     }
 
     return NextResponse.json({ data });
-  } catch (err) {
+  } catch (err: any) {
     console.error(err);
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
+    return NextResponse.json({ error: err?.message ?? "Server error" }, { status: 500 });
   }
 }
