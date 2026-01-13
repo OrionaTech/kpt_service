@@ -66,7 +66,7 @@ export async function sendContactNotification(data: ContactFormData) {
 
     const { data: emailData, error } = await getResendClient().emails.send({
       from: process.env.RESEND_FROM_EMAIL || "KPT Crane & Machinery <noreply@kptcrane.com>",
-      to: process.env.CONTACT_NOTIFICATION_EMAIL || "contact@orionatech.in",
+      to: process.env.CONTACT_NOTIFICATION_EMAIL || "contact@kptservice.co.in",
       subject: `New Contact Submission from ${data.name}`,
       html,
     })
