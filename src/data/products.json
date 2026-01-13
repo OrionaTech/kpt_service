@@ -1,0 +1,176 @@
+[
+  {
+    "id": "eot-crane-5-ton",
+    "name": "EOT Crane 5 Ton",
+    "slug": "eot-crane-5-ton",
+    "category": "EOT Cranes",
+    "description": "Heavy-duty 5-ton Electric Overhead Traveling crane designed for industrial applications. Features robust construction and reliable performance.",
+    "specifications": {
+      "capacity": "5 Ton",
+      "span": "10-30 meters",
+      "liftingHeight": "6-18 meters",
+      "powerSupply": "415V, 3 Phase, 50Hz",
+      "control": "Pendant / Radio Remote"
+    },
+    "features": [
+      "Robust steel construction",
+      "Smooth hoisting and traveling",
+      "Safety limit switches",
+      "Overload protection",
+      "Weather-resistant design"
+    ],
+    "image": "/products/eot-crane-5-ton.jpg"
+  },
+  {
+    "id": "eot-crane-10-ton",
+    "name": "EOT Crane 10 Ton",
+    "slug": "eot-crane-10-ton",
+    "category": "EOT Cranes",
+    "description": "Powerful 10-ton EOT crane for medium to heavy industrial operations. Ideal for manufacturing and warehouse applications.",
+    "specifications": {
+      "capacity": "10 Ton",
+      "span": "12-35 meters",
+      "liftingHeight": "8-20 meters",
+      "powerSupply": "415V, 3 Phase, 50Hz",
+      "control": "Pendant / Radio Remote"
+    },
+    "features": [
+      "Heavy-duty construction",
+      "Precision control",
+      "Advanced safety features",
+      "Low maintenance",
+      "Customizable options"
+    ],
+    "image": "/products/eot-crane-10-ton.jpg"
+  },
+  {
+    "id": "eot-crane-20-ton",
+    "name": "EOT Crane 20 Ton",
+    "slug": "eot-crane-20-ton",
+    "category": "EOT Cranes",
+    "description": "High-capacity 20-ton EOT crane engineered for demanding industrial environments. Built for reliability and efficiency.",
+    "specifications": {
+      "capacity": "20 Ton",
+      "span": "15-40 meters",
+      "liftingHeight": "10-25 meters",
+      "powerSupply": "415V, 3 Phase, 50Hz",
+      "control": "Pendant / Radio Remote / Cabin"
+    },
+    "features": [
+      "Extra heavy-duty design",
+      "High-speed operation",
+      "Advanced control systems",
+      "Comprehensive safety",
+      "Long service life"
+    ],
+    "image": "/products/eot-crane-20-ton.jpg"
+  },
+  {
+    "id": "gantry-crane-5-ton",
+    "name": "Gantry Crane 5 Ton",
+    "slug": "gantry-crane-5-ton",
+    "category": "Gantry Cranes",
+    "description": "Versatile 5-ton gantry crane perfect for outdoor applications and areas without overhead support structures.",
+    "specifications": {
+      "capacity": "5 Ton",
+      "span": "8-25 meters",
+      "liftingHeight": "6-15 meters",
+      "powerSupply": "415V, 3 Phase, 50Hz",
+      "control": "Pendant / Radio Remote"
+    },
+    "features": [
+      "Portable design",
+      "No overhead support needed",
+      "Outdoor capable",
+      "Easy installation",
+      "Cost-effective solution"
+    ],
+    "image": "/products/gantry-crane-5-ton.jpg"
+  },
+  {
+    "id": "jib-crane-2-ton",
+    "name": "Jib Crane 2 Ton",
+    "slug": "jib-crane-2-ton",
+    "category": "Jib Cranes",
+    "description": "Compact 2-ton jib crane ideal for workshop and manufacturing floor applications. Provides precise material handling.",
+    "specifications": {
+      "capacity": "2 Ton",
+      "reach": "3-8 meters",
+      "liftingHeight": "4-10 meters",
+      "powerSupply": "415V, 3 Phase, 50Hz",
+      "control": "Pendant"
+    },
+    "features": [
+      "Space-efficient",
+      "360-degree rotation",
+      "Quick installation",
+      "Precise positioning",
+      "Affordable pricing"
+    ],
+    "image": "/products/jib-crane-2-ton.jpg"
+  },
+  {
+    "id": "hoist-single-speed",
+    "name": "Electric Hoist - Single Speed",
+    "slug": "hoist-single-speed",
+    "category": "Hoists",
+    "description": "Reliable single-speed electric hoist for standard lifting operations. Suitable for various industrial applications.",
+    "specifications": {
+      "capacity": "0.5-10 Ton",
+      "liftingSpeed": "8 m/min",
+      "powerSupply": "415V, 3 Phase, 50Hz",
+      "control": "Pendant"
+    },
+    "features": [
+      "Compact design",
+      "Easy operation",
+      "Durable construction",
+      "Safety brake system",
+      "Wide capacity range"
+    ],
+    "image": "/products/hoist-single-speed.jpg"
+  },
+  {
+    "id": "hoist-dual-speed",
+    "name": "Electric Hoist - Dual Speed",
+    "slug": "hoist-dual-speed",
+    "category": "Hoists",
+    "description": "Advanced dual-speed electric hoist offering precision control for delicate operations and high-speed lifting.",
+    "specifications": {
+      "capacity": "1-20 Ton",
+      "liftingSpeed": "8/2 m/min",
+      "powerSupply": "415V, 3 Phase, 50Hz",
+      "control": "Pendant"
+    },
+    "features": [
+      "Dual speed operation",
+      "Precise positioning",
+      "Advanced safety",
+      "Smooth control",
+      "Heavy-duty rated"
+    ],
+    "image": "/products/hoist-dual-speed.jpg"
+  },
+  {
+    "id": "chain-hoist",
+    "name": "Chain Hoist",
+    "slug": "chain-hoist",
+    "category": "Hoists",
+    "description": "Robust chain hoist designed for heavy-duty lifting applications. Built to withstand harsh industrial environments.",
+    "specifications": {
+      "capacity": "0.5-5 Ton",
+      "liftingSpeed": "Variable",
+      "powerSupply": "Manual / Electric",
+      "control": "Hand Chain / Pendant"
+    },
+    "features": [
+      "Heavy-duty chain",
+      "Manual or electric",
+      "Compact size",
+      "High reliability",
+      "Low maintenance"
+    ],
+    "image": "/products/chain-hoist.jpg"
+  }
+]
+
