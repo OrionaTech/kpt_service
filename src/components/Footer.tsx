@@ -11,7 +11,7 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-3">
               <Image
-                src="/kpt_logo.jpg"
+                src="/kpt-new-logo.jpeg"
                 alt="KPT Logo"
                 width={50}
                 height={50}

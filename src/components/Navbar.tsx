@@ -46,7 +46,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
             <Image
-              src="/kpt_logo.jpg"
+              src="/kpt-new-logo.jpeg"
               alt="KPT Logo"
               width={60}
               height={60}
