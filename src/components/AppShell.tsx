@@ -16,7 +16,7 @@ function LoadingScreen({ done }: { done: boolean }) {
           KPT
         </p>
         <p className="mt-2 font-mono text-xs uppercase tracking-[0.3em] text-[var(--steel)]">
-          SERVICES
+          SERVICES 
         </p>
         <div className="loader-track mt-8">
           <div className="loader-bar" />
