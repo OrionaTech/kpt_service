@@ -1,5 +1,6 @@
 import { Award, Users, Target, Heart } from "lucide-react"
 import type { Metadata } from "next"
+import { GlobalStatsStrip } from "@/components/sections/GlobalStatsStrip"
 
 export const metadata: Metadata = {
   title: "About Us - KPT Crane & Machinery",
@@ -12,118 +13,85 @@ const values = [
     icon: Target,
     title: "Our Mission",
     description:
-      "To provide world-class industrial crane solutions that enhance productivity, ensure safety, and deliver exceptional value to our customers.",
+      "To deliver world-class crane solutions that improve productivity, strengthen safety, and create long-term value.",
   },
   {
     icon: Award,
     title: "Quality First",
     description:
-      "We maintain the highest standards in manufacturing, using premium materials and rigorous quality control processes.",
+      "We enforce strict manufacturing standards with premium materials and inspection-driven execution.",
   },
   {
     icon: Users,
     title: "Customer Focus",
     description:
-      "Our customers are at the heart of everything we do. We build lasting relationships through exceptional service and support.",
+      "We build long-term partnerships through responsive communication and reliable service support.",
   },
   {
     icon: Heart,
     title: "Innovation",
     description:
-      "We continuously invest in research and development to bring cutting-edge solutions and technologies to the market.",
+      "Continuous engineering improvements help us deliver safer and more efficient industrial systems.",
   },
 ]
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
-      <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-16">
+    <main className="min-h-screen bg-[#0c0c0c] text-[var(--bright)]">
+      <section className="hazard-bottom border-b border-[#262626] bg-[linear-gradient(140deg,#151515,#090909)] py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">About Us</h1>
-          <p className="text-lg text-slate-300 max-w-2xl">
-            Leading the industry with quality, innovation, and customer
-            satisfaction
+          <h1 className="font-display text-6xl sm:text-7xl">About Us</h1>
+          <p className="mt-3 max-w-2xl text-[var(--steel)]">Engineering reliable material handling systems with consistency, precision, and accountability.</p>
+        </div>
+      </section>
+
+      <GlobalStatsStrip />
+
+      <section className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <div className="industrial-card mx-auto mb-14 max-w-4xl p-8 md:p-12">
+          <h2 className="font-display text-5xl">Our Story</h2>
+          <p className="mt-5 text-[var(--steel)]">
+            KPT Crane & Machinery has served industrial clients for more than two decades with dependable lifting systems designed for practical plant conditions.
+            We have grown through execution quality, transparent communication, and continuous technical refinement.
+          </p>
+          <p className="mt-4 text-[var(--steel)]">
+            From crane fabrication to electrical panel integration and lifecycle service support, we operate with one objective: stable, safe, and efficient operations for every client.
           </p>
         </div>
-      </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Company Story */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="bg-white rounded-lg shadow-md p-8 md:p-12">
-            <h2 className="text-3xl font-bold text-foreground mb-6">
-              Our Story
-            </h2>
-            <div className="prose prose-slate max-w-none">
-              <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-                KPT Crane & Machinery has been a trusted name in the industrial
-                crane manufacturing industry for over two decades. Founded with
-                a vision to provide reliable and efficient material handling
-                solutions, we have grown to become one of the leading
-                manufacturers in the region.
-              </p>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-                Our commitment to quality, innovation, and customer satisfaction
-                has enabled us to serve thousands of clients across various
-                industries including manufacturing, steel, automotive,
-                construction, and warehousing.
-              </p>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                With state-of-the-art manufacturing facilities and a team of
-                experienced engineers and technicians, we continue to push the
-                boundaries of what's possible in industrial crane technology.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Values */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-foreground text-center mb-12">
-            Our Core Values
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <h2 className="text-center font-display text-5xl">Our Core Values</h2>
+          <div className="mt-8 grid grid-cols-1 gap-7 md:grid-cols-2">
             {values.map((value) => (
-              <div
-                key={value.title}
-                className="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition-shadow"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6">
-                  <value.icon className="h-8 w-8" />
+              <article key={value.title} className="industrial-card p-8 transition-all duration-300 hover:border-[var(--accent)] hover:shadow-[0_0_20px_rgba(232,160,32,0.2)]">
+                <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded border border-[var(--accent)]/45 bg-[var(--glow)] text-[var(--accent)]">
+                  <value.icon className="h-7 w-7" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
+                <h3 className="font-display text-4xl">{value.title}</h3>
+                <p className="mt-2 text-sm text-[var(--steel)]">{value.description}</p>
+              </article>
             ))}
           </div>
         </div>
 
-        {/* Why Choose Us */}
-        <div className="bg-gradient-to-r from-primary to-secondary rounded-lg p-8 md:p-12 text-white">
-          <h2 className="text-3xl font-bold mb-6 text-center">
-            Why Choose KPT Crane & Machinery?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <section className="hazard-top border border-[#2c2c2c] bg-[#111] p-8 md:p-12">
+          <h2 className="text-center font-display text-5xl">Why Choose KPT Crane & Machinery?</h2>
+          <div className="mx-auto mt-8 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
             <div className="text-center">
-              <div className="text-4xl font-bold mb-2">25+</div>
-              <div className="text-white/90">Years of Experience</div>
+              <div className="font-mono text-5xl font-bold text-[var(--accent)]">25+</div>
+              <div className="mt-2 text-sm uppercase tracking-[0.16em] text-[var(--steel)]">Years of Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold mb-2">5000+</div>
-              <div className="text-white/90">Projects Completed</div>
+              <div className="font-mono text-5xl font-bold text-[var(--accent)]">5000+</div>
+              <div className="mt-2 text-sm uppercase tracking-[0.16em] text-[var(--steel)]">Projects Completed</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold mb-2">2500+</div>
-              <div className="text-white/90">Satisfied Clients</div>
+              <div className="font-mono text-5xl font-bold text-[var(--accent)]">2500+</div>
+              <div className="mt-2 text-sm uppercase tracking-[0.16em] text-[var(--steel)]">Satisfied Clients</div>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </section>
     </main>
   )
 }
-

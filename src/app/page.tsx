@@ -1,5 +1,7 @@
 import { Hero } from "@/components/sections/Hero"
+import { GlobalStatsStrip } from "@/components/sections/GlobalStatsStrip"
 import { ProductCategories } from "@/components/sections/ProductCategories"
+import { CraneAssemblySection } from "@/components/sections/CraneAssemblySection"
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs"
 import { IndustriesServed } from "@/components/sections/IndustriesServed"
 import { StatsSection } from "@/components/sections/StatsSection"
@@ -21,13 +23,15 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Hero />
+      <GlobalStatsStrip />
       <ProductCategories />
+      <CraneAssemblySection />
       <WhyChooseUs />
       <IndustriesServed />
       <StatsSection />
       <CTA />
-    </main>
+    </>
   )
 }

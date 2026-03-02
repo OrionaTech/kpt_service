@@ -2,7 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  reactStrictMode: false,
   reactCompiler: true,
+  turbopack: {
+    root: __dirname,
+  },
     images: {
     remotePatterns: [
       {

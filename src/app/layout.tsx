@@ -1,19 +1,23 @@
 import type { Metadata } from "next"
-import { Inter, Poppins } from "next/font/google"
+import { Inter, Bebas_Neue, Space_Mono } from "next/font/google"
 import "./globals.css"
-import { Navbar } from "@/components/Navbar"
-import { Footer } from "@/components/Footer"
-import PageTracker from "@/components/PageTracker"
+import AppShell from "@/components/AppShell"
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 })
 
-const poppins = Poppins({
+const bebas = Bebas_Neue({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-poppins",
+  weight: ["400"],
+  variable: "--font-display",
+})
+
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-mono",
 })
 
 export const metadata: Metadata = {
@@ -30,7 +34,7 @@ export const metadata: Metadata = {
     "material handling",
     "crane manufacturer",
   ],
-   icons: {
+  icons: {
     icon: "/favicon.ico",
   },
 }
@@ -42,12 +46,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-       <link rel="icon" href="/favicon.ico" />
-      <body className={`${inter.variable} font-sans antialiased`}>
-         <PageTracker />
-        <Navbar />
-        <div className="pt-20">{children}</div>
-        <Footer />
+      <body className={`${inter.variable} ${bebas.variable} ${spaceMono.variable} font-sans antialiased`}>
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   )

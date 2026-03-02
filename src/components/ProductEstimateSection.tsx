@@ -18,10 +18,14 @@ export default function ProductEstimateSection({
   const [estimate, setEstimate] = useState<any>(null);
 
   return (
-    <section className="mt-14 bg-slate-100 p-6 rounded-lg">
-      <h2 className="font-heading text-2xl font-semibold mb-2">
+    <section className="industrial-card mt-14 border border-[#2c2c2c] p-6 md:p-8">
+      <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--accent)]">Quick Pricing</p>
+      <h2 className="font-heading mb-2 text-3xl font-semibold text-[var(--bright)]">
         Get Estimated Cost
       </h2>
+      <p className="text-sm text-[var(--steel)]">
+        Enter the core parameters below to get an indicative project range.
+      </p>
 
       <EstimateCalculator
         estimator={estimator}

@@ -54,26 +54,47 @@ export default function EstimateCalculator({ estimator, onEstimate }: Props) {
     <form action={calculate} className="grid md:grid-cols-2 gap-4 mt-6">
       {estimator !== "panel" && (
         <>
-          <input name="capacity" placeholder="Capacity" required className="border rounded px-3 py-2" />
-          <input name="span" placeholder="Span" className="border rounded px-3 py-2" />
+          <input
+            name="capacity"
+            placeholder="Capacity (Ton)"
+            required
+            className="border-0 border-b border-[#3a3a3a] bg-transparent px-0 py-2 text-[var(--bright)] placeholder:text-[var(--steel)] focus:border-[var(--accent)] focus:outline-none"
+          />
+          <input
+            name="span"
+            placeholder="Span (Meter)"
+            className="border-0 border-b border-[#3a3a3a] bg-transparent px-0 py-2 text-[var(--bright)] placeholder:text-[var(--steel)] focus:border-[var(--accent)] focus:outline-none"
+          />
         </>
       )}
 
       {estimator === "panel" && (
         <>
-          <input name="load" placeholder="Load (kW)" required className="border rounded px-3 py-2" />
-          <input name="feeders" placeholder="No. of Feeders" required className="border rounded px-3 py-2" />
+          <input
+            name="load"
+            placeholder="Load (kW)"
+            required
+            className="border-0 border-b border-[#3a3a3a] bg-transparent px-0 py-2 text-[var(--bright)] placeholder:text-[var(--steel)] focus:border-[var(--accent)] focus:outline-none"
+          />
+          <input
+            name="feeders"
+            placeholder="No. of Feeders"
+            required
+            className="border-0 border-b border-[#3a3a3a] bg-transparent px-0 py-2 text-[var(--bright)] placeholder:text-[var(--steel)] focus:border-[var(--accent)] focus:outline-none"
+          />
         </>
       )}
 
-      <button className="bg-slate-900 text-white rounded px-4 py-2 md:col-span-2">
+      <button className="shimmer-btn md:col-span-2 mt-2 border border-[var(--accent)] bg-[var(--accent)] px-4 py-3 font-mono text-xs uppercase tracking-[0.14em] text-[#1c1204] transition hover:bg-[#f1b84f]">
         Generate Estimate
       </button>
 
       {result && (
-        <div className="md:col-span-2 bg-white p-4 rounded border mt-4">
-          <p className="font-semibold">Estimated Cost Range</p>
-          <p className="text-lg">
+        <div className="md:col-span-2 mt-4 border border-[#343434] bg-[#121212] p-4">
+          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--steel)]">
+            Estimated Cost Range
+          </p>
+          <p className="mt-1 text-xl font-semibold text-[var(--accent)]">
             ₹ {result.min.toLocaleString()} – ₹ {result.max.toLocaleString()}
           </p>
         </div>

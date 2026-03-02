@@ -1,161 +1,117 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from "lucide-react"
+import { Phone, Mail, MapPin } from "lucide-react"
+
+const quickLinks = [
+  { href: "/products", label: "Products" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About Us" },
+  { href: "/contact", label: "Contact" },
+]
+
+const productLinks = [
+  { href: "/products?category=EOT Cranes", label: "EOT Cranes" },
+  { href: "/products?category=Gantry Cranes", label: "Gantry Cranes" },
+  { href: "/products?category=Jib Cranes", label: "Jib Cranes" },
+  { href: "/products?category=Electrical Panels", label: "Electrical Panels" },
+]
+
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <path d="M8 10v7M8 7h.01M12 17v-4a2 2 0 1 1 4 0v4" />
+    </svg>
+  )
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M20 12a8 8 0 0 1-11.7 7l-4 1 1.1-3.8A8 8 0 1 1 20 12Z" />
+      <path d="M9 9c0 3 2 6 5 7l1-1" />
+    </svg>
+  )
+}
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-100">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
+    <footer className="hazard-top relative overflow-hidden border-t border-[#2e2e2e] bg-[#0a0a0a] text-[var(--chrome)]">
+      <div className="pointer-events-none absolute inset-0 opacity-25 [background-image:radial-gradient(rgba(255,255,255,0.08)_0.4px,transparent_0.4px)] [background-size:4px_4px]" />
+
+      <div className="container relative mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <Link href="/" className="flex items-center space-x-3">
-              <Image
-                src="/kpt-new-logo.jpeg"
-                alt="KPT Logo"
-                width={50}
-                height={50}
-                className="object-contain"
-              />
-              <span className="text-lg font-bold">KPT Service</span>
+            <Link href="/" className="flex items-center gap-3">
+              <Image src="/kpt-new-logo.jpeg" alt="KPT Logo" width={48} height={48} className="object-contain" />
+              <div>
+                <p className="font-display text-3xl leading-none text-[var(--bright)]">KPT</p>
+                <p className="font-mono text-[10px] tracking-[0.2em] text-[var(--accent)]">SERVICES</p>
+              </div>
             </Link>
-            <p className="text-slate-400 text-sm">
-              Leading manufacturer of industrial cranes and material handling
-              equipment. Quality, reliability, and innovation since our inception.
+            <p className="text-sm text-[var(--steel)]">
+              Industrial crane systems engineered for uptime, safety, and precision material handling.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/products"
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
+            <h3 className="font-display text-3xl text-[var(--bright)]">Quick Links</h3>
+            <ul className="mt-4 space-y-2 text-sm">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-[var(--steel)] transition-colors hover:text-[var(--accent)]">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Products */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Products</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/products?category=EOT Cranes"
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
-                  EOT Cranes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products?category=Gantry Cranes"
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
-                  Gantry Cranes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products?category=Jib Cranes"
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
-                  Jib Cranes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products?category=Hoists"
-                  className="text-slate-400 hover:text-primary transition-colors"
-                >
-                  Hoists
-                </Link>
-              </li>
+            <h3 className="font-display text-3xl text-[var(--bright)]">Products</h3>
+            <ul className="mt-4 space-y-2 text-sm">
+              {productLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-[var(--steel)] transition-colors hover:text-[var(--accent)]">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Contact</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start space-x-3">
-                <Phone className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-slate-400">+91-98123-43912</span>
+            <h3 className="font-display text-3xl text-[var(--bright)]">Contact</h3>
+            <ul className="mt-4 space-y-3 text-sm">
+              <li className="flex items-start gap-3">
+                <Phone className="mt-0.5 h-4 w-4 text-[var(--accent)]" />
+                <span className="text-[var(--steel)]">+91-98123-43912</span>
               </li>
-              <li className="flex items-start space-x-3">
-                <Mail className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-slate-400">contact@kptservice.co.in</span>
+              <li className="flex items-start gap-3">
+                <Mail className="mt-0.5 h-4 w-4 text-[var(--accent)]" />
+                <span className="text-[var(--steel)]">contact@kptservice.co.in</span>
               </li>
-              <li className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-slate-400">
-                  Plot No 10/1, Industrial Estate Phase 2, Yamuna Nagar, Haryana - 135001
-                </span>
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 text-[var(--accent)]" />
+                <span className="text-[var(--steel)]">Plot No 10/1, Industrial Estate Phase 2, Yamuna Nagar, Haryana - 135001</span>
               </li>
             </ul>
-            <div className="flex space-x-4 mt-4">
-              <a
-                href="#"
-                className="text-slate-400 hover:text-primary transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
+
+            <div className="mt-4 flex gap-3">
+              <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="rounded border border-[#343434] p-2 text-[var(--steel)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]">
+                <LinkedInIcon />
               </a>
-              <a
-                href="#"
-                className="text-slate-400 hover:text-primary transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-slate-400 hover:text-primary transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
+              <a href="https://wa.me/919812343912" target="_blank" rel="noreferrer" aria-label="WhatsApp" className="rounded border border-[#343434] p-2 text-[var(--steel)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]">
+                <WhatsAppIcon />
               </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-400">
-          <p>
-            © {new Date().getFullYear()} KPT Service. All rights
-            reserved. Made with ❤️ by <a href="www.orionatech.in">OrianaTech</a>.
-          </p>
+        <div className="mt-10 border-t border-[#2d2d2d] pt-6 text-center font-mono text-[10px] tracking-[0.16em] text-[var(--steel)]">
+          © {new Date().getFullYear()} KPT Crane & Machinery. All rights reserved.
         </div>
       </div>
     </footer>
   )
 }
-

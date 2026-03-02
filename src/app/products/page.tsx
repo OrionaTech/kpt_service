@@ -1,12 +1,9 @@
-import {
-  getAllProducts,
-  getAllCategories,
-  getProductsByCategory,
-} from "@/lib/products"
+import { getAllProducts, getAllCategories, getProductsByCategory } from "@/lib/products"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import type { Metadata } from "next"
- import Image from "next/image"
+import { GlobalStatsStrip } from "@/components/sections/GlobalStatsStrip"
 
 export const metadata: Metadata = {
   title: "Products - Industrial Cranes & Material Handling Equipment",
@@ -18,39 +15,30 @@ type ProductsPageProps = {
   searchParams: Promise<{ category?: string }>
 }
 
-export default async function ProductsPage({
-  searchParams,
-}: ProductsPageProps) {
-  const { category } = await searchParams // ✅ REQUIRED IN NEXT 16
+export default async function ProductsPage({ searchParams }: ProductsPageProps) {
+  const { category } = await searchParams
 
   const categories = getAllCategories()
   const selectedCategory = category
-
-  const products = selectedCategory
-    ? getProductsByCategory(selectedCategory)
-    : getAllProducts()
+  const products = selectedCategory ? getProductsByCategory(selectedCategory) : getAllProducts()
 
   return (
-    <main className="min-h-screen bg-slate-50">
-      {/* Hero */}
-      <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-4">Our Products</h1>
-          <p className="text-slate-300 max-w-2xl">
-            Industrial cranes & electrical panels engineered for performance
-          </p>
+    <main className="min-h-screen bg-[#0c0c0c] text-[var(--bright)]">
+      <section className="hazard-bottom border-b border-[#262626] bg-[linear-gradient(140deg,#161616,#0a0a0a)] py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="font-display text-6xl sm:text-7xl">Our Products</h1>
+          <p className="mt-3 max-w-2xl text-[var(--steel)]">Industrial cranes and electrical panels engineered for demanding operating environments.</p>
         </div>
-      </div>
+      </section>
 
-      <div className="container mx-auto px-4 py-12">
-        {/* Category Filter */}
+      <GlobalStatsStrip />
+
+      <section className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-wrap gap-2">
           <Link
             href="/products"
-            className={`px-4 py-2 rounded-md ${
-              !selectedCategory
-                ? "bg-primary text-white"
-                : "bg-white"
+            className={`border px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] transition ${
+              !selectedCategory ? "border-[var(--accent)] bg-[var(--accent)] text-[#1c1204]" : "border-[#313131] text-[var(--steel)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
             }`}
           >
             All Products
@@ -60,10 +48,8 @@ export default async function ProductsPage({
             <Link
               key={cat}
               href={`/products?category=${encodeURIComponent(cat)}`}
-              className={`px-4 py-2 rounded-md ${
-                selectedCategory === cat
-                  ? "bg-primary text-white"
-                  : "bg-white"
+              className={`border px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] transition ${
+                selectedCategory === cat ? "border-[var(--accent)] bg-[var(--accent)] text-[#1c1204]" : "border-[#313131] text-[var(--steel)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
               }`}
             >
               {cat}
@@ -71,45 +57,32 @@ export default async function ProductsPage({
           ))}
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => (
-            <Link
-              key={product.id}
-              href={`/products/${product.slug}`}
-              className="group"
-            >
-              <div className="bg-white rounded-lg shadow hover:shadow-xl transition overflow-hidden">
-                {/* IMAGE PLACEHOLDER (ready for next/image later) */}
-                  <div className="relative h-48">
-                    <Image
-                      src={product.images[0]}
-                      alt={product.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+            <Link key={product.id} href={`/products/${product.slug}`} className="group">
+              <article className="industrial-card relative h-full overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--accent)] hover:shadow-[0_0_20px_rgba(232,160,32,0.2)]">
+                <span className="absolute left-0 top-0 z-20 h-0 w-0 border-l-[46px] border-t-[46px] border-l-[var(--accent)] border-t-[var(--accent)]/20 border-r-transparent border-b-transparent" />
 
+                <div className="relative h-52 overflow-hidden border-b border-[#2d2d2d]">
+                  <Image src={product.images[0]} alt={product.name} fill className="industrial-image object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <span className="absolute left-3 top-3 rounded bg-black/70 px-2 py-1 font-mono text-[10px] tracking-[0.16em] text-[#ffd9a0]">
+                    {product.category.includes("Electrical") ? "CONTROL SYSTEM" : "UP TO 500T"}
+                  </span>
+                </div>
 
                 <div className="p-6">
-                  <p className="text-sm text-primary mb-1">
-                    {product.category}
-                  </p>
-                  <h3 className="text-xl font-semibold mb-2">
-                    {product.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {product.shortDescription}
-                  </p>
-                  <span className="flex items-center text-primary text-sm">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--accent)]">{product.category}</p>
+                  <h3 className="mt-1 font-display text-3xl text-[var(--bright)]">{product.name}</h3>
+                  <p className="mt-2 text-sm text-[var(--steel)]">{product.shortDescription}</p>
+                  <span className="mt-4 inline-flex items-center font-mono text-xs uppercase tracking-[0.14em] text-[var(--accent)]">
                     View Details <ArrowRight className="ml-2 h-4 w-4" />
                   </span>
                 </div>
-              </div>
+              </article>
             </Link>
           ))}
         </div>
-      </div>
+      </section>
     </main>
   )
 }

@@ -43,29 +43,29 @@ export default function GenerateQuotationButton({
     <>
       <button
         onClick={() => setOpen(true)}
-        className="mt-6 bg-slate-900 text-white px-6 py-3 rounded-md"
+        className="mt-6 border border-[var(--accent)] px-6 py-3 font-mono text-xs uppercase tracking-[0.14em] text-[var(--accent)] transition hover:bg-[var(--glow)]"
       >
         Generate Detailed Quotation
       </button>
 
       {open && (
         <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center">
-          <div className="bg-white rounded-lg p-6 w-full max-w-md">
-            <h3 className="text-lg font-semibold mb-4">
+          <div className="w-full max-w-md border border-[#343434] bg-[#121212] p-6 text-[var(--bright)]">
+            <h3 className="mb-4 font-heading text-2xl font-semibold">
               Request Detailed Quotation
             </h3>
 
             <input
               type="email"
               placeholder="Email"
-              className="border w-full p-2 mb-3 rounded"
+              className="mb-3 w-full border-0 border-b border-[#3a3a3a] bg-transparent p-2 pl-0 text-[var(--bright)] placeholder:text-[var(--steel)] focus:border-[var(--accent)] focus:outline-none"
               onChange={(e) => setEmail(e.target.value)}
             />
 
             <input
               type="tel"
               placeholder="Phone"
-              className="border w-full p-2 mb-4 rounded"
+              className="mb-4 w-full border-0 border-b border-[#3a3a3a] bg-transparent p-2 pl-0 text-[var(--bright)] placeholder:text-[var(--steel)] focus:border-[var(--accent)] focus:outline-none"
               onChange={(e) => setPhone(e.target.value)}
             />
 
@@ -73,14 +73,14 @@ export default function GenerateQuotationButton({
               <button
                 onClick={submit}
                 disabled={loading}
-                className="flex-1 bg-slate-900 text-white py-2 rounded"
+                className="shimmer-btn flex-1 border border-[var(--accent)] bg-[var(--accent)] py-2 font-mono text-xs uppercase tracking-[0.14em] text-[#1c1204] transition hover:bg-[#f1b84f]"
               >
                 {loading ? "Submitting..." : "Submit"}
               </button>
 
               <button
                 onClick={() => setOpen(false)}
-                className="flex-1 border py-2 rounded"
+                className="flex-1 border border-[#3a3a3a] py-2 font-mono text-xs uppercase tracking-[0.14em] text-[var(--steel)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
                 Cancel
               </button>

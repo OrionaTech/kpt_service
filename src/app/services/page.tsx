@@ -1,5 +1,6 @@
 import { Wrench, Settings, FileCheck, RefreshCw } from "lucide-react"
 import type { Metadata } from "next"
+import { GlobalStatsStrip } from "@/components/sections/GlobalStatsStrip"
 
 export const metadata: Metadata = {
   title: "Services - Installation, Maintenance & Support",
@@ -12,7 +13,7 @@ const services = [
     icon: Settings,
     title: "Installation",
     description:
-      "Professional installation services by certified technicians. We ensure proper setup, testing, and commissioning of all equipment.",
+      "Professional installation services by certified technicians, including testing and commissioning.",
     features: [
       "Site assessment and planning",
       "Professional installation",
@@ -20,13 +21,12 @@ const services = [
       "Testing and commissioning",
       "Training for operators",
     ],
-    color: "from-primary/20 to-primary/5",
   },
   {
     icon: Wrench,
     title: "Maintenance",
     description:
-      "Regular maintenance programs to keep your equipment running at peak performance and extend its operational life.",
+      "Preventive and predictive maintenance schedules to maximize uptime and extend equipment life.",
     features: [
       "Scheduled inspections",
       "Preventive maintenance",
@@ -34,13 +34,12 @@ const services = [
       "Performance optimization",
       "Maintenance reports",
     ],
-    color: "from-secondary/20 to-secondary/5",
   },
   {
     icon: FileCheck,
-    title: "AMC (Annual Maintenance Contract)",
+    title: "AMC",
     description:
-      "Comprehensive annual maintenance contracts providing peace of mind with regular service and priority support.",
+      "Annual maintenance contracts with planned service visits and priority support windows.",
     features: [
       "Annual service schedule",
       "Priority support",
@@ -48,13 +47,12 @@ const services = [
       "Comprehensive coverage",
       "Dedicated service team",
     ],
-    color: "from-primary/20 to-primary/5",
   },
   {
     icon: RefreshCw,
     title: "Repair & Retrofit",
     description:
-      "Expert repair services and modernization solutions to upgrade existing equipment and restore optimal functionality.",
+      "Rapid corrective services and modernization packages for legacy systems.",
     features: [
       "Emergency repairs",
       "Component upgrades",
@@ -62,79 +60,55 @@ const services = [
       "Performance enhancement",
       "Extended warranty",
     ],
-    color: "from-secondary/20 to-secondary/5",
   },
 ]
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
-      <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-16">
+    <main className="min-h-screen bg-[#0c0c0c] text-[var(--bright)]">
+      <section className="hazard-bottom border-b border-[#262626] bg-[linear-gradient(140deg,#151515,#090909)] py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Our Services</h1>
-          <p className="text-lg text-slate-300 max-w-2xl">
-            Comprehensive support services to ensure your equipment operates at
-            peak performance throughout its lifecycle
-          </p>
+          <h1 className="font-display text-6xl sm:text-7xl">Our Services</h1>
+          <p className="mt-3 max-w-2xl text-[var(--steel)]">Lifecycle support to keep crane and panel systems reliable, compliant, and productive.</p>
         </div>
-      </div>
+      </section>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <GlobalStatsStrip />
+
+      <section className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {services.map((service) => (
-            <div
-              key={service.title}
-              className={`bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-br ${service.color}`}
-            >
-              <div className="p-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6">
-                  <service.icon className="h-8 w-8" />
-                </div>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">
-                  {service.title}
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  {service.description}
-                </p>
-                <ul className="space-y-3">
-                  {service.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <div className="w-2 h-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+            <article key={service.title} className="industrial-card p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--accent)] hover:shadow-[0_0_20px_rgba(232,160,32,0.2)]">
+              <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded border border-[var(--accent)]/50 bg-[var(--glow)] text-[var(--accent)]">
+                <service.icon className="h-7 w-7" />
               </div>
-            </div>
+              <h2 className="font-display text-4xl">{service.title}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--steel)]">{service.description}</p>
+              <ul className="mt-5 space-y-2">
+                {service.features.map((feature) => (
+                  <li key={feature} className="flex items-start text-sm text-[var(--chrome)]">
+                    <span className="mt-1.5 mr-3 h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-12 bg-gradient-to-r from-primary to-secondary rounded-lg p-8 text-white text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Need Professional Service?
-          </h2>
-          <p className="text-lg text-white/90 mb-6 max-w-2xl mx-auto">
-            Our expert team is ready to assist you with all your service needs.
-            Contact us today to discuss your requirements.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact?quote=true"
-              className="inline-flex items-center justify-center px-8 py-3 bg-white text-primary rounded-md font-medium hover:bg-white/90 transition-colors"
-            >
+        <div className="hazard-top mt-12 border border-[#2b2b2b] bg-[#111] p-8 text-center">
+          <h2 className="font-display text-5xl text-[var(--bright)]">Need Professional Service?</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-[var(--steel)]">Our engineers are ready to plan, service, and optimize your lifting infrastructure.</p>
+          <div className="mt-6 flex flex-col justify-center gap-4 sm:flex-row">
+            <a href="/contact?quote=true" className="shimmer-btn inline-flex items-center justify-center border border-[var(--accent)] bg-[var(--accent)] px-8 py-3 font-mono text-xs uppercase tracking-[0.14em] text-[#1c1204] transition hover:bg-[#f1b84f]">
               Request Service
             </a>
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white rounded-md font-medium hover:bg-white/10 transition-colors"
-            >
+            <a href="/contact" className="inline-flex items-center justify-center border border-[var(--accent)] px-8 py-3 font-mono text-xs uppercase tracking-[0.14em] text-[var(--accent)] transition hover:bg-[var(--glow)]">
               Contact Us
             </a>
           </div>
         </div>
-      </div>
+      </section>
     </main>
   )
 }
-
