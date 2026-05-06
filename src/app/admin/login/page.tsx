@@ -45,7 +45,7 @@ export default function AdminLoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-100">
-      <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow">
+      <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow text-gray-700">
         <h1 className="text-xl font-semibold mb-4">Admin Login</h1>
 
         <Input

@@ -23,9 +23,21 @@ export default function Estimations() {
       <h1 className="text-xl font-semibold">Project Estimation (Beta)</h1>
 
       <div className="grid grid-cols-2 gap-4 mt-6">
-        <input placeholder="Project Type" onChange={e => setForm({ ...form, project: e.target.value })} />
-        <input placeholder="Industry" onChange={e => setForm({ ...form, industry: e.target.value })} />
-        <input placeholder="Budget Range" onChange={e => setForm({ ...form, budget: e.target.value })} />
+      <input 
+        placeholder="Project Type" 
+        className="border p-2 rounded text-gray-700 placeholder-gray-400 w-full"
+        onChange={e => setForm({ ...form, project: e.target.value })} 
+      />
+      <input 
+        placeholder="Industry" 
+        className="border p-2 rounded text-gray-700 placeholder-gray-400 w-full"
+        onChange={e => setForm({ ...form, industry: e.target.value })} 
+      />
+      <input 
+        placeholder="Budget Range" 
+        className="border p-2 rounded text-gray-700 placeholder-gray-400 w-full"
+        onChange={e => setForm({ ...form, budget: e.target.value })} 
+      />
       </div>
 
       <button onClick={generate} className="mt-4 bg-slate-900 text-white px-4 py-2">
@@ -33,7 +45,7 @@ export default function Estimations() {
       </button>
 
       {summary && (
-        <div className="mt-6 bg-white border p-4 rounded">
+        <div className="mt-6 bg-white border p-4 rounded text-gray-700">
           {summary}
         </div>
       )}
